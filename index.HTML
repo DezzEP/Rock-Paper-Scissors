@@ -8,6 +8,7 @@
 </head>
 
 <script>
+  let decision = '';
   
   function computerPlay(){
     /*generates a random number between 0-2, then assigns 
@@ -29,6 +30,79 @@
     return computerChoice;
 
   }
+  function userPlay(){
+
+    let userChoice = prompt("Rock Paper Scissors?").toLowerCase();
+    decision = userChoice;
+    return userChoice;
+    
+
+
+  }
+  function checkResult(choice){
+    
+    
+    
+    
+
+    
+    
+    if (!(choice === "rock" || choice === "scissors" || choice === "paper")){
+      
+      
+      checkResult(userPlay());
+      return;
+      
+      
+    }
+    
+    
+    
+  }
+
+  function numOfRounds(){
+    roundCount = prompt("Howmany rounds would you like to play?");
+
+    if ( isNaN(roundCount)){
+      console.log("Enter a number?")
+      numOfRounds();
+      return roundCount;
+    
+    }
+  }
+  
+
+      
+
+  function playGame(computer, user){
+    
+    lose = "YOU LOSE!"
+    win = "YOU WIN!"
+    tie = "IT'S A TIE!"
+    console.log(`${user} vs ${computer}`);
+    if (user === computer){
+      console.log(tie);
+
+    }
+    else if (user === "rock" && computer === 'paper'){
+      console.log(lose)
+    }
+    else if (user === "paper" && computer === "scissors"){
+      console.log(lose)
+    }
+    else if (user === "scissors" && computer === "rock"){
+      console.log(lose)
+    }
+    else{
+      console.log(win);
+    }
+    
+    
+  }
+    
+    checkResult();
+    playGame(computerPlay(), decision);
+
 
   
 </script>
