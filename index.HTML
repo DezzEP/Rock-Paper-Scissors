@@ -9,6 +9,9 @@
 
 <script>
   let decision = '';
+  let ties = 0;
+  let wins = 0;
+  let losses = 0;
   
   function computerPlay(){
     /*generates a random number between 0-2, then assigns 
@@ -24,41 +27,19 @@
     else if (randomInt === 2) {
       computerChoice = "scissors"
     }
-  
-    
-
     return computerChoice;
 
   }
   function userPlay(){
-
     let userChoice = prompt("Rock Paper Scissors?").toLowerCase();
     decision = userChoice;
     return userChoice;
-    
-
-
   }
   function checkResult(choice){
-    
-    
-    
-    
-
-    
-    
     if (!(choice === "rock" || choice === "scissors" || choice === "paper")){
-      
-      
       checkResult(userPlay());
       return;
-      
-      
-    }
-    
-    
-    
-  }
+      }}
 
   function numOfRounds(){
     roundCount = prompt("Howmany rounds would you like to play?");
@@ -67,41 +48,54 @@
       console.log("Enter a number?")
       numOfRounds();
       return roundCount;
-    
     }
-  }
+    else{
+      return roundCount;
+    }}
   
-
-      
-
   function playGame(computer, user){
-    
-    lose = "YOU LOSE!"
-    win = "YOU WIN!"
-    tie = "IT'S A TIE!"
+   
+    let lose = "YOU LOSE!"
+    let win = "YOU WIN!"
+    let tie = "IT'S A TIE!"
     console.log(`${user} vs ${computer}`);
     if (user === computer){
       console.log(tie);
+      ties++;
 
     }
     else if (user === "rock" && computer === 'paper'){
       console.log(lose)
+      losses++;
     }
     else if (user === "paper" && computer === "scissors"){
       console.log(lose)
+      losses++;
+      
     }
     else if (user === "scissors" && computer === "rock"){
       console.log(lose)
+      losses++;
+      
     }
     else{
       console.log(win);
+      wins++;
     }
     
     
   }
-    
+  function gamesPlayed(){
+    let x = numOfRounds();
+    for (let i = 0; i < x; i++){
     checkResult();
-    playGame(computerPlay(), decision);
+    console.log(`Wins: ${wins} Losses: ${losses} Ties: ${ties}`)
+    playGame(computerPlay(), decision);}
+    
+    
+  }
+
+  gamesPlayed();
 
 
   
