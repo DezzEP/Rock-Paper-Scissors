@@ -1,14 +1,16 @@
 # Rock-Paper-Scissors
-a no GUI game of rock paper scissors.
+A game of rock paper scissors... with buttons!
 
-The computer will randomly select a number between 0-2, each number will have a value of rock paper or scissors.
+The computer will randomly select rock paper or scissors.
 
-It will simply be a <script> running in an html file.
-
-There will be no actual content on the website, it will strictly be played from the console.
-
-The user can enter r or rock, p or paper, s or scissors, or e or exit to exit the game.
+The player (you), can click rock paper or scissors in the web browser.
 
 The score will be tracked and expressed to the user.
 
-It's just rock paper scissors so I don't think it justifies more info.
+It's just rock paper scissors so I don't think it justifies more information.
+
+Incase it does (maybe this is recovered 1000 years into the future.. )
+
+https://wrpsa.com/the-official-rules-of-rock-paper-scissors/
+
+Again if this is 1000 years into the future this link will probably not work.
