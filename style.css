@@ -1,0 +1,26 @@
+div, .buttons{
+  min-height:80vmin;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color:  whitesmoke;
+  
+  
+
+}
+
+  
+
+
+#rock, #paper, #scissors{
+  color:red;
+  min-width: 50px;
+  max-width: 200px;
+  
+}
+
+#rock{
+  border-style:double;
+  
+  
+}
