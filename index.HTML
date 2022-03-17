@@ -5,8 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
+
+  
+
+<body>
+    <div class ="buttons">
+    <button id ="rock">Rock</button>
+    <button id ="scissors">Scissors</button>
+    <button id ="paper">Paper</button>
+  </div>
+
+</body>
 <script>
   let decision = '';
   let ties = 0;
@@ -30,31 +42,13 @@
     return computerChoice;
 
   }
-  function userPlay(){
-    let userChoice = prompt("Rock Paper Scissors?").toLowerCase();
-    decision = userChoice;
-    return userChoice;
-  }
-  function checkResult(choice){
-    if (!(choice === "rock" || choice === "scissors" || choice === "paper")){
-      checkResult(userPlay());
-      return;
-      }}
-
+  
   function numOfRounds(){
-    roundCount = prompt("Howmany rounds would you like to play?");
-
-    if ( isNaN(roundCount)){
-      console.log("Enter a number?")
-      numOfRounds();
-      return roundCount;
-    }
-    else{
-      return roundCount;
-    }}
+    roundCount = 1
+      return roundCount;}
+  
   
   function playGame(computer, user){
-   
     let lose = "YOU LOSE!"
     let win = "YOU WIN!"
     let tie = "IT'S A TIE!"
@@ -62,7 +56,6 @@
     if (user === computer){
       console.log(tie);
       ties++;
-
     }
     else if (user === "rock" && computer === 'paper'){
       console.log(lose)
@@ -81,26 +74,32 @@
     else{
       console.log(win);
       wins++;
-    }
-    
-    
-  }
-  function gamesPlayed(){
+    }}
+  function gamesPlayed(buttonClicked){
+    let decision = buttonClicked;
     let x = numOfRounds();
     for (let i = 0; i < x; i++){
-    checkResult();
     console.log(`Wins: ${wins} Losses: ${losses} Ties: ${ties}`)
     playGame(computerPlay(), decision);}
     
     
   }
-
-  gamesPlayed();
+  const btnR = document.querySelector('#rock');
+  btnR.addEventListener('click', () => {
+   gamesPlayed(btnR.id);
+  });
+  const btnS = document.querySelector('#scissors');
+  btnS.addEventListener('click', () => {
+   gamesPlayed(btnS.id);
+  });
+  const btnP = document.querySelector('#paper');
+  btnP.addEventListener('click', () => {
+   gamesPlayed(btnP.id);
+  });
 
 
   
+  
+
 </script>
-<body>
-  
-</body>
 </html>
