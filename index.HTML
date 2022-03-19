@@ -13,26 +13,74 @@
 
 <body>
   <div class ="buttons">
-    <div class = "doublestack">
+    <div>
       <img id ="rock" src ="images/rock.png" alt ="picture of rock" >
       <p> rock</p>
-    
     </div>
-    <div class = "doublestack">
-      <img id ="scissors" src ="images/scissors.png" alt ="picture of scissors">
-      <p>scissors</p>
-    </div>
-    <div class ="doublestack">
+
+    <div>
       <img id ="paper" src ="images/paper.png" alt ="picture of paper">
       <p>paper</p>
     </div>
+    <div>
+      <img id ="scissors" src ="images/scissors.png" alt ="picture of scissors">
+      <p>scissors</p>
+    </div>
+    </div>
+   <div id="score">
+     <p id='computer'></p>
+      
+    </div>
+
 
 </body>
 <script>
+
+  let numOfRounds = 1;
   let decision = '';
   let ties = 0;
   let wins = 0;
   let losses = 0;
+  let continueCon = true;
+
+  const score = document.createElement("h4");
+      const node = document.createTextNode("Choose Your Weapon");
+      score.appendChild(node);
+      const element = document.getElementById("computer");
+      element.appendChild(score);
+
+  
+  const playAgainBtn = (gameVictor) => {let btnPlayAgain = document.createElement("button");
+      if (gameVictor === 2){
+      btnPlayAgain.innerHTML = "Play Again?";
+      playAgain = document.body.appendChild(btnPlayAgain);
+      playAgain.style = "height: 7.5em; font-size: 32px; background-color: pink;";
+      numOfRounds = 0;
+      gameVictor = 0;
+      }
+      btnPlayAgain.addEventListener('click', () => {
+      node.nodeValue = "Choose Your Weapon!";
+      numOfRounds = 1;
+      wins = 0;
+      losses = 0;
+      ties = 0;
+      continueCon = true;
+      
+      
+      btnPlayAgain.remove();
+      
+      
+  });
+      
+      
+    
+    
+
+    
+}
+
+  
+ 
   
   function computerPlay(){
     /*generates a random number between 0-2, then assigns 
@@ -52,9 +100,8 @@
 
   }
   
-  function numOfRounds(){
-    roundCount = 1
-      return roundCount;}
+  
+    
   
   
   function playGame(computer, user){
@@ -86,29 +133,55 @@
     }}
   function gamesPlayed(buttonClicked){
     let decision = buttonClicked;
-    let x = numOfRounds();
-    for (let i = 0; i < x; i++){
-    console.log(`Wins: ${wins} Losses: ${losses} Ties: ${ties}`)
-    playGame(computerPlay(), decision);}
+    
+    for (let i = 0; i < numOfRounds; i++){
+      playGame(computerPlay(), decision);}
+    if(wins === 0 && losses && 0 || ties && 0){
+      node.nodeValue = 'Rock Paper Scissors';
+    }
+    else{
+      node.nodeValue = `Wins: ${wins}Losses: ${losses}Ties: ${ties}`;}
+    
+    
+    if (wins === 5 && continueCon === true)
+      {node.nodeValue = "YOU WIN!";
+        playAgainBtn(2);
+        continueCon = false;
+        return;
+      } 
+
+    else if (losses === 5 && continueCon === true){
+      
+      node.nodeValue = 'You Lose';
+      playAgainBtn(2);
+      continueCon = false;
+      return;
+    }
+    else if (continueCon === false && losses >= 5){
+      node.nodeValue = 'You Lost Already. :(';
+    }
+    else if (continueCon === false && wins >= 5){
+      node.nodeValue = 'You Won Already! :)';
+    }
+      
+    
     
     
   }
-  const btnR = document.querySelector('#rock');
+  
+  let btnR = document.querySelector('#rock');
   btnR.addEventListener('click', () => {
    gamesPlayed(btnR.id);
   });
-  const btnS = document.querySelector('#scissors');
+  let btnS = document.querySelector('#scissors');
   btnS.addEventListener('click', () => {
    gamesPlayed(btnS.id);
   });
-  const btnP = document.querySelector('#paper');
+  let btnP = document.querySelector('#paper');
   btnP.addEventListener('click', () => {
    gamesPlayed(btnP.id);
   });
 
-
   
-  
-
 </script>
 </html>
