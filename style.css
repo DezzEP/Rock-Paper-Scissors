@@ -11,6 +11,12 @@ div{
   margin: 2px;
   
 }
+h1{
+  display:flex;
+  justify-content: center;
+  
+
+}
 
 
  .buttons{
@@ -56,6 +62,7 @@ div#content{
 #computer{
   display: flex;
   justify-content:center;
+
 }  
   
 
